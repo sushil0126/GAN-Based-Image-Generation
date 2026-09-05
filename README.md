@@ -1,8 +1,8 @@
-🧠 CIFAR-10 Image Generation using DCGAN (PyTorch)
+#🧠 CIFAR-10 Image Generation using DCGAN (PyTorch)
 
 This project builds a Deep Convolutional Generative Adversarial Network (DCGAN) using PyTorch to generate synthetic CIFAR-10 images. A Generator learns to create realistic images from random noise while a Discriminator learns to tell real images from fake ones, with both improving through adversarial training.
 
-📌 Table of Contents
+#📌 Table of Contents
 
 * [Project Overview](#project-overview)
 * [Technologies Used](#technologies-used)
@@ -17,11 +17,11 @@ This project builds a Deep Convolutional Generative Adversarial Network (DCGAN) 
 * [How to Run](#how-to-run)
 * [Future Improvements](#future-improvements)
 
-📊 Project Overview
+#📊 Project Overview
 
 The goal is to train a DCGAN to generate realistic 32x32 RGB images similar to those in the CIFAR-10 dataset. The Generator and Discriminator are trained simultaneously in an adversarial setup: the Generator tries to fool the Discriminator, while the Discriminator tries to correctly classify real vs. fake images.
 
-🛠 Technologies Used
+#🛠 Technologies Used
 
 * Python
 * PyTorch
@@ -31,14 +31,14 @@ The goal is to train a DCGAN to generate realistic 32x32 RGB images similar to t
 * PIL (Pillow)
 * CUDA (GPU acceleration)
 
-🗂 Dataset
+#🗂 Dataset
 
 * CIFAR-10 dataset
 * Image size: 32x32 RGB
 * 50,000 training images used (unlabeled for GAN training)
 * Loaded and automatically downloaded via `torchvision.datasets.CIFAR10`
 
-🔄 Data Preprocessing
+#🔄 Data Preprocessing
 
 * Resize to (32, 32)
 * RandomHorizontalFlip
@@ -47,7 +47,7 @@ The goal is to train a DCGAN to generate realistic 32x32 RGB images similar to t
 * Batch size: 128
 * Shuffling enabled
 
-🧠 Model Architecture
+#🧠 Model Architecture
 
 **Discriminator**
 
@@ -66,7 +66,7 @@ The goal is to train a DCGAN to generate realistic 32x32 RGB images similar to t
 * Conv2D (32 → 3), Tanh
 * Takes a 100-dimensional random noise vector as input and outputs a 32x32x3 image
 
-🚀 Training Process
+#🚀 Training Process
 
 * Loss Function: Binary Cross-Entropy Loss (BCELoss)
 * Optimizer: Adam (lr = 0.0002, betas = (0.5, 0.999)) for both Generator and Discriminator
@@ -81,7 +81,7 @@ Each training step alternates between:
 
 Generated sample images are saved every 5 epochs to track visual progress.
 
-🧪 Experimentation
+#🧪 Experimentation
 
 Multiple training runs were done to find the best configuration:
 
@@ -91,20 +91,20 @@ Multiple training runs were done to find the best configuration:
 
 Adjusting batch size and learning rate alongside the epoch count helped balance the Generator and Discriminator learning speed, reducing mode collapse and leading to steadily improving image quality as training progressed.
 
-⚖️ Loss Function & Optimizers
+#⚖️ Loss Function & Optimizers
 
 * **Discriminator Loss** = Real Loss + Fake Loss (BCELoss)
 * **Generator Loss** = BCELoss between Discriminator's output on fake images and real labels
 * Both networks use separate Adam optimizers to allow independent learning rates and momentum behavior
 
-📈 Results
+#📈 Results
 
 * Discriminator loss generally decreased over training, showing improved ability to detect fake images
 * Generator loss fluctuated as it adapted to a strengthening Discriminator, a typical pattern in adversarial training
 * Visual quality of generated images improved noticeably from early epochs to epoch 150
 * Sample grids were saved at epochs 15, 30, 45, 60, 75, 90, 105, 120, 135, and 150 for comparison
 
-📂 Project Structure
+#📂 Project Structure
 
 ```
 GAN-Based-Image-Generation
@@ -122,7 +122,7 @@ GAN-Based-Image-Generation
 └── README.md
 ```
 
-▶️ How to Run
+#▶️ How to Run
 
 Clone Repository
 ```
@@ -139,7 +139,7 @@ Run Training
 jupyter notebook
 ```
 
-🔮 Future Improvements
+#🔮 Future Improvements
 
 * Add label smoothing and noisy labels to stabilize adversarial training
 * Experiment with Wasserstein loss (WGAN-GP) for more stable convergence
